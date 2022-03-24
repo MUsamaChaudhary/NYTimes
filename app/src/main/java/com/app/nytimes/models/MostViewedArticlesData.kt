@@ -1,9 +1,9 @@
 package com.app.nytimes.models
 
 
-data class MostViewedArticlesData(val status: String, val items: ArrayList<MostViewedArticle>?)
+data class MostViewedArticlesData(val status: String, val results: ArrayList<MostViewedArticle>?)
 data class MostViewedArticle(
-    val id: Int,
+    val id: Long,
     val source: String?,
     val published_date: String?,
     val section: String?,

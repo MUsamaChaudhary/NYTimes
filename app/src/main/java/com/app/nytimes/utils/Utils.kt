@@ -1,6 +1,8 @@
 package com.app.nytimes.utils
 
 import android.app.Activity
+import android.content.Context
+import android.net.ConnectivityManager
 import android.view.WindowManager
 
 object Utils {

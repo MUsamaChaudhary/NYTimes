@@ -1,8 +1,6 @@
 package com.app.nytimes
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
 import androidx.viewbinding.ViewBinding
 import com.app.nytimes.base.BaseActivity
@@ -27,10 +25,12 @@ class MainActivity : BaseActivity() {
         binding = getBinding() as ActivityMainBinding
         setSupportActionBar(binding.toolbar)
         viewModel.init(1)
+        //listens to our data coming from get articles api
         viewModel.getLiveArticles()?.observe(this, { data ->
-            Log.d(TAG, "init: ${data?.size}")
+            binding.textViewDate.text = "Articles length is ${data?.size}"
         })
-        viewModel.listenLoading().observe(this,{ loading ->
+        // listen to get data articles api and show view accordingly
+        viewModel.listenLoading().observe(this, { loading ->
             showProgressBar(loading)
         })
     }

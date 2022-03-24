@@ -22,6 +22,7 @@ class ArticlesViewModel : ViewModel() {
         return articlesResponseNew
     }
 
+    // call this fun in case of swipe refresh
     fun loadArticles(profileNum: Int) {
         RetrofitRepository.getArticles(profileNum, articlesResponseNew, isLoading)
     }

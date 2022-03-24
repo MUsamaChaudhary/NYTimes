@@ -28,9 +28,10 @@ object RetrofitRepository {
                 ) {
                     isLoading.value = false
                     if (response.isSuccessful && response.body() != null) {
-                        response.body()?.items?.let {
+                        Log.d(TAG, "onResponse: Articles response is ${response.body()}")
+                        response.body()?.results?.let {
                             val list = arrayListOf<MostViewedArticle>()
-                            list.addAll(response.body()!!.items!!)
+                            list.addAll(response.body()!!.results!!)
                             articlesResponseNew?.value = it
                             Log.d(TAG, "onResponse: Articles response list size is ${it.size}")
                         } ?: run {
@@ -45,7 +46,7 @@ object RetrofitRepository {
 
                 override fun onFailure(call: Call<MostViewedArticlesData>, t: Throwable) {
                     isLoading.value = false
-                    Log.d(TAG, "onFailure: Error in getting articles")
+                    Log.d(TAG, "onFailure: Error in getting articles ${t.message}")
                     articlesResponseNew?.value = null
                 }
 
