@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">NYTimes</string>
+    <string name="a_main_tb">New York Times</string>
+
 </resources>
