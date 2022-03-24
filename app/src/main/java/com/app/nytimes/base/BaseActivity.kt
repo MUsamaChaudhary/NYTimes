@@ -19,6 +19,9 @@ abstract class BaseActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = getLayout()
+
+        setContentView(binding.root)
+        init(savedInstanceState)
     }
 
     protected abstract fun getLayout(): ViewBinding

@@ -16,14 +16,17 @@ object RetrofitRepository {
 
     fun getArticles(
         profileNum: Int,
-        articlesResponseNew: MutableLiveData<List<MostViewedArticle>>?,
+        articlesResponseNew: MutableLiveData<List<MostViewedArticle>?>?,
+        isLoading: MutableLiveData<Boolean>
     ) {
+        isLoading.value = true
         retrofitApi.getDataFromApi(profileNum)
             .enqueue(object : retrofit2.Callback<MostViewedArticlesData> {
                 override fun onResponse(
                     call: Call<MostViewedArticlesData>,
                     response: Response<MostViewedArticlesData>,
                 ) {
+                    isLoading.value = false
                     if (response.isSuccessful && response.body() != null) {
                         response.body()?.items?.let {
                             val list = arrayListOf<MostViewedArticle>()
@@ -41,6 +44,7 @@ object RetrofitRepository {
                 }
 
                 override fun onFailure(call: Call<MostViewedArticlesData>, t: Throwable) {
+                    isLoading.value = false
                     Log.d(TAG, "onFailure: Error in getting articles")
                     articlesResponseNew?.value = null
                 }

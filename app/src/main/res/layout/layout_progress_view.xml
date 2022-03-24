@@ -5,6 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:visibility="gone"
     android:gravity="center"
+    android:background="@color/colorPrimaryDark"
     android:elevation="@dimen/_15sdp"
     android:orientation="vertical"
     android:id="@+id/progressRoot">
