@@ -8,4 +8,6 @@
     <color name="colorSecondaryText">#757575</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="colorDivider">#EDEDED</color>
+    <color name="colorGray">#666666</color>
 </resources>
