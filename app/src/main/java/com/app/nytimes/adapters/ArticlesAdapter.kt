@@ -28,23 +28,33 @@ class ArticlesAdapter (
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val article = articles[position]
-        Log.d(TAG, "onBindViewHolder: data is $article")
-
         // set title
         article?.title?.let{
+            holder.binding.articleTitle.visibility=View.VISIBLE
             holder.binding.articleTitle.text = it
+        } ?: run {
+            holder.binding.articleTitle.visibility=View.GONE
         }
         // set source
         article?.source?.let{
+            holder.binding.articleSource.visibility=View.VISIBLE
             holder.binding.articleSource.text = it
+        }?: run {
+            holder.binding.articleSource.visibility=View.GONE
         }
         // set section
         article?.section?.let{
+            holder.binding.articleSections.visibility=View.VISIBLE
             holder.binding.articleSections.text = it
+        }?: run {
+            holder.binding.articleSections.visibility=View.GONE
         }
         // set section
         article?.published_date?.let{
+            holder.binding.timestamp.visibility=View.VISIBLE
             holder.binding.timestamp.text = it
+        }?: run {
+            holder.binding.timestamp.visibility=View.GONE
         }
 
         // handle on click listner on article list items
