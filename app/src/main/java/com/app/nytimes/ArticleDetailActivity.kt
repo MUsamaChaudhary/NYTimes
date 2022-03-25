@@ -8,6 +8,7 @@ import androidx.viewbinding.ViewBinding
 import com.app.nytimes.base.BaseActivity
 import com.app.nytimes.databinding.ActivityArticleDetailBinding
 import com.app.nytimes.models.MostViewedArticle
+import com.app.nytimes.utils.Utils
 import org.parceler.Parcels
 
 class ArticleDetailActivity : BaseActivity() {
@@ -36,55 +37,76 @@ class ArticleDetailActivity : BaseActivity() {
     private fun updateUi(articleModel: MostViewedArticle?) {
         Log.d(TAG, "updateUi: $articleModel")
         articleModel?.title?.let {
-            binding.articleTitle.visibility= View.VISIBLE
+            binding.articleTitle.visibility = View.VISIBLE
             binding.articleTitle.text = it
         } ?: run {
-            binding.articleTitle.visibility= View.GONE
+            binding.articleTitle.visibility = View.GONE
         }
         articleModel?.section?.let {
-            binding.articleSection.visibility= View.VISIBLE
-            binding.articleSectionText.visibility= View.VISIBLE
+            Utils.setViewVisibility(
+                binding.articleSection,
+                binding.articleSectionText,
+                View.VISIBLE,
+            )
             binding.articleSectionText.text = it
         } ?: run {
-            binding.articleSection.visibility= View.GONE
-            binding.articleSectionText.visibility= View.GONE
+            Utils.setViewVisibility(binding.articleSection, binding.articleSectionText, View.GONE)
         }
         articleModel?.subsection?.let {
-            if(it.isNullOrEmpty()){
-                binding.articleSubSection.visibility= View.GONE
-                binding.articleSubSectionText.visibility= View.GONE
-            }else{
-                binding.articleSubSection.visibility= View.VISIBLE
-                binding.articleSubSectionText.visibility= View.VISIBLE
+            if (it.isEmpty()) {
+                Utils.setViewVisibility(
+                    binding.articleSubSection,
+                    binding.articleSubSectionText,
+                    View.GONE,
+                )
+            } else {
+                Utils.setViewVisibility(
+                    binding.articleSubSection,
+                    binding.articleSubSectionText,
+                    View.VISIBLE,
+                )
                 binding.articleSubSectionText.text = it
             }
         } ?: run {
-            binding.articleSubSection.visibility= View.GONE
-            binding.articleSubSectionText.visibility= View.GONE
+            Utils.setViewVisibility(
+                binding.articleSubSection,
+                binding.articleSubSectionText,
+                View.GONE,
+            )
         }
         articleModel?.source?.let {
-            binding.articleSource.visibility= View.VISIBLE
-            binding.articleSourceText.visibility= View.VISIBLE
+            Utils.setViewVisibility(
+                binding.articleSource,
+                binding.articleSourceText,
+                View.VISIBLE,
+            )
             binding.articleSourceText.text = it
         } ?: run {
-            binding.articleSource.visibility= View.GONE
-            binding.articleSourceText.visibility= View.GONE
+            Utils.setViewVisibility(binding.articleSource, binding.articleSourceText, View.GONE)
         }
         articleModel?.byline?.let {
-            binding.articleByLine.visibility= View.VISIBLE
-            binding.articleByLineText.visibility= View.VISIBLE
+            Utils.setViewVisibility(
+                binding.articleByLine,
+                binding.articleByLineText,
+                View.VISIBLE,
+            )
             binding.articleByLineText.text = it
         } ?: run {
-            binding.articleByLine.visibility= View.GONE
-            binding.articleByLineText.visibility= View.GONE
+            Utils.setViewVisibility(binding.articleByLine, binding.articleByLineText, View.GONE)
         }
         articleModel?.published_date?.let {
-            binding.articlePublishedDate.visibility= View.VISIBLE
-            binding.articlePublishedDateText.visibility= View.VISIBLE
+            Utils.setViewVisibility(
+                binding.articlePublishedDate,
+                binding.articlePublishedDateText,
+                View.VISIBLE,
+            )
             binding.articlePublishedDateText.text = it
         } ?: run {
-            binding.articlePublishedDate.visibility= View.GONE
-            binding.articlePublishedDateText.visibility= View.GONE
+            Utils.setViewVisibility(
+                binding.articlePublishedDate,
+                binding.articlePublishedDateText,
+                View.GONE,
+            )
         }
 
     }
