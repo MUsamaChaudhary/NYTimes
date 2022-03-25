@@ -1,5 +1,6 @@
 package com.app.nytimes
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
@@ -14,6 +15,7 @@ import com.app.nytimes.models.MostViewedArticle
 import com.app.nytimes.utils.Utils
 import com.app.nytimes.utils.Utils.makeSnackBar
 import com.app.nytimes.viewmodels.ArticlesViewModel
+import org.parceler.Parcels
 
 class MainActivity : BaseActivity(), ArticlesAdapter.ClickListener {
 
@@ -84,6 +86,12 @@ class MainActivity : BaseActivity(), ArticlesAdapter.ClickListener {
     }
 
     override fun onViewClick(articleData: MostViewedArticle, position: Int, view: View) {
-
+        startActivity(
+            Intent(
+                this@MainActivity,
+                ArticleDetailActivity::class.java
+            ).apply {
+                putExtra(KEY_JOB_MODEL, Parcels.wrap(articleData))
+            })
     }
 }

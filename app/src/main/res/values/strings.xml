@@ -2,5 +2,6 @@
     <string name="app_name">NYTimes</string>
     <string name="a_main_tb">New York Times</string>
     <string name="no_articles">No articles found check your connection and try again</string>
+    <string name="article_detail_tb">Article Detail</string>
 
 </resources>
