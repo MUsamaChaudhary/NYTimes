@@ -1,12 +1,14 @@
 package com.app.nytimes.adapters
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.app.nytimes.R
 import com.app.nytimes.databinding.LayoutArticlesItemBinding
+
 import com.app.nytimes.models.MostViewedArticle
 
 class ArticlesAdapter (
@@ -15,6 +17,9 @@ class ArticlesAdapter (
     private var listener: ClickListener
 ) : RecyclerView.Adapter<ArticlesAdapter.ViewHolder>()  {
 
+    companion object {
+        private  val TAG = ArticlesAdapter::class.simpleName
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
         ViewHolder(
@@ -23,17 +28,19 @@ class ArticlesAdapter (
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val article = articles[position]
+        Log.d(TAG, "onBindViewHolder: data is $article")
+
         // set title
         article?.title?.let{
             holder.binding.articleTitle.text = it
         }
         // set source
         article?.source?.let{
-            holder.binding.articleTitle.text = it
+            holder.binding.articleSource.text = it
         }
         // set section
         article?.section?.let{
-            holder.binding.articleTitle.text = it
+            holder.binding.articleSections.text = it
         }
         // set section
         article?.published_date?.let{

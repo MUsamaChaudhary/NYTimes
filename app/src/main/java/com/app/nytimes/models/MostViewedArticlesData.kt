@@ -10,4 +10,6 @@ data class MostViewedArticle(
     val subsection: String?,
     val byline: String?,
     val title: String?,
+    val abstract: String?,
+
 )
