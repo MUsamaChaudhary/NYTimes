@@ -11,12 +11,15 @@ import com.app.nytimes.base.BaseActivity
 import com.app.nytimes.comparators.ArticleTimeComp
 import com.app.nytimes.databinding.ActivityMainBinding
 import com.app.nytimes.models.MostViewedArticle
+import com.app.nytimes.utils.Utils
+import com.app.nytimes.utils.Utils.makeSnackBar
 import com.app.nytimes.viewmodels.ArticlesViewModel
 
 class MainActivity : BaseActivity(), ArticlesAdapter.ClickListener {
 
     companion object {
         private val TAG = MainActivity::class.simpleName
+        const val KEY_JOB_MODEL = "KeyArticleModel"
     }
 
     private lateinit var binding: ActivityMainBinding
@@ -34,6 +37,7 @@ class MainActivity : BaseActivity(), ArticlesAdapter.ClickListener {
 
         // set recycler view data
         initRecyclerView()
+
         // initializing view model
         viewModel.init(1)
         //listens to our data coming from get articles api
@@ -52,10 +56,25 @@ class MainActivity : BaseActivity(), ArticlesAdapter.ClickListener {
             }
             adapter.notifyDataSetChanged()
         })
-        // listen to get data articles api and show view accordingly
+        // listen to get data articles api and show loading view accordingly
         viewModel.listenLoading().observe(this, { loading ->
             showProgressBar(loading)
         })
+        //// listen to get data articles api and show swipe loading view accordingly
+        viewModel.listenSwipeLoading().observe(this, { loading ->
+            binding.swipeRefresh.isRefreshing = loading
+        })
+
+
+        // call api on refresh listner
+        binding.swipeRefresh.setOnRefreshListener {
+            if (Utils.isNetworkAvailable(this)) {
+                viewModel.loadArticles(1)
+            } else {
+                binding.swipeRefresh.isRefreshing = false
+                binding.root.makeSnackBar("Network not available")
+            }
+        }
     }
 
     private fun initRecyclerView() {
