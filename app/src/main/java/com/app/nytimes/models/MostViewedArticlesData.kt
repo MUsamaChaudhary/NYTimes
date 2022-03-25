@@ -1,15 +1,18 @@
 package com.app.nytimes.models
 
+import com.google.gson.annotations.SerializedName
+import org.parceler.Parcel
+
 
 data class MostViewedArticlesData(val status: String, val results: ArrayList<MostViewedArticle>?)
-data class MostViewedArticle(
-    val id: Long,
-    val source: String?,
-    val published_date: String?,
-    val section: String?,
-    val subsection: String?,
-    val byline: String?,
-    val title: String?,
-    val abstract: String?,
 
+@Parcel
+data class MostViewedArticle(
+    var id: String? = null,
+    var source: String? = null,
+    var published_date: String? = null,
+    var section: String? = null,
+    var subsection: String? = null,
+    var byline: String? = null,
+    var title: String? = null,
 )
