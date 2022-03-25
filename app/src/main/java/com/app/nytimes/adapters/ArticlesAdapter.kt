@@ -51,6 +51,9 @@ class ArticlesAdapter (
         holder.binding.root.setOnClickListener {
             listener.onViewClick(article,position,it)
         }
+        holder.binding.detail.setOnClickListener {
+            listener.onViewClick(article,position,it)
+        }
 
     }
 

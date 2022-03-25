@@ -28,6 +28,30 @@ class ArticleDetailActivity : BaseActivity() {
             finish()
         }
         articleModel = Parcels.unwrap(intent?.getParcelableExtra(MainActivity.KEY_JOB_MODEL))
+        updateUi(articleModel)
+
+    }
+
+    private fun updateUi(articleModel: MostViewedArticle?) {
+        articleModel?.title?.let {
+            binding.articleTitle.text = it
+        }
+        articleModel?.section?.let {
+            binding.articleSectionText.text = it
+        }
+        articleModel?.subsection?.let {
+            binding.articleSubSectionText.text = it
+        }
+        articleModel?.source?.let {
+            binding.articleSourceText.text = it
+        }
+        articleModel?.byline?.let {
+            binding.articleByLineText.text = it
+        }
+        articleModel?.published_date?.let {
+            binding.articlePublishedDateText.text = it
+        }
+
     }
 
 }

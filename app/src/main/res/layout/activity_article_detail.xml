@@ -30,74 +30,71 @@
             android:id="@+id/childParent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/_15sdp"
-            >
+            android:padding="@dimen/_15sdp">
+
             <TextView
                 android:id="@+id/articleTitle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/_18ssp"
-                android:textStyle="bold"
                 android:textColor="@color/colorPrimaryText"
+                android:textSize="@dimen/_14ssp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
-                android:id="@+id/articleAbstract"
+                android:id="@+id/articleByLine"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_4sdp"
-                android:text="Abstract"
+                android:text="@string/article_by_line"
                 android:textColor="@color/colorPrimaryText"
-                android:textStyle="bold"
-                android:textSize="@dimen/_16ssp"
-                app:layout_constraintStart_toStartOf="parent"
+                android:textSize="@dimen/_12ssp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/articleTitle" />
 
             <TextView
-                android:id="@+id/articleAbstractText"
+                android:id="@+id/articleByLineText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_4sdp"
                 android:textColor="@color/colorSecondaryText"
-                android:textSize="@dimen/_16ssp"
-                android:textStyle="bold"
+                android:textSize="@dimen/_12ssp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/articleAbstract" />
+                app:layout_constraintTop_toBottomOf="@id/articleByLine" />
 
             <TextView
                 android:id="@+id/articleSection"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Section"
-                android:textColor="@color/colorPrimaryText"
-                android:textStyle="bold"
                 android:layout_marginTop="@dimen/_4sdp"
+                android:text="@string/article_section"
+                android:textColor="@color/colorPrimaryText"
                 android:textSize="@dimen/_12ssp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/articleAbstractText" />
+                app:layout_constraintTop_toBottomOf="@+id/articleByLineText" />
 
 
             <TextView
                 android:id="@+id/articleSectionText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
                 android:fontFamily="sans-serif-light"
                 android:textColor="@color/colorSecondaryText"
-                android:layout_marginTop="@dimen/_4sdp"
                 app:layout_constraintBottom_toBottomOf="@+id/articleSection"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/articleSection" />
+
             <TextView
                 android:id="@+id/articleSubSection"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Subsection"
-                android:textColor="@color/colorPrimaryText"
-                android:textStyle="bold"
                 android:layout_marginTop="@dimen/_4sdp"
+                android:text="@string/article_sub_section"
+                android:textColor="@color/colorPrimaryText"
                 android:textSize="@dimen/_12ssp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/articleSection" />
@@ -107,20 +104,20 @@
                 android:id="@+id/articleSubSectionText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
                 android:fontFamily="sans-serif-light"
                 android:textColor="@color/colorSecondaryText"
-                android:layout_marginTop="@dimen/_4sdp"
                 app:layout_constraintBottom_toBottomOf="@+id/articleSubSection"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/articleSubSection" />
+
             <TextView
                 android:id="@+id/articleSource"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Source"
-                android:textColor="@color/colorPrimaryText"
-                android:textStyle="bold"
                 android:layout_marginTop="@dimen/_4sdp"
+                android:text="@string/article_source"
+                android:textColor="@color/colorPrimaryText"
                 android:textSize="@dimen/_12ssp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/articleSubSection" />
@@ -130,56 +127,32 @@
                 android:id="@+id/articleSourceText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorSecondaryText"
-                android:fontFamily="sans-serif-light"
                 android:layout_marginTop="@dimen/_4sdp"
+                android:fontFamily="sans-serif-light"
+                android:textColor="@color/colorSecondaryText"
                 app:layout_constraintBottom_toBottomOf="@+id/articleSource"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/articleSource" />
 
             <TextView
-                android:id="@+id/articleByLine"
+                android:id="@+id/articlePublishedDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="By line"
-                android:textColor="@color/colorPrimaryText"
-                android:textStyle="bold"
                 android:layout_marginTop="@dimen/_4sdp"
+                android:text="@string/article_date"
+                android:textColor="@color/colorPrimaryText"
                 android:textSize="@dimen/_12ssp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/articleSource" />
 
 
             <TextView
-                android:id="@+id/articleByLineText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-light"
-                android:textColor="@color/colorSecondaryText"
-                android:layout_marginTop="@dimen/_4sdp"
-                app:layout_constraintBottom_toBottomOf="@+id/articleByLine"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/articleByLine" />
-            <TextView
-                android:id="@+id/articlePublishedDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Published Date"
-                android:textStyle="bold"
-                android:textColor="@color/colorPrimaryText"
-                android:layout_marginTop="@dimen/_4sdp"
-                android:textSize="@dimen/_12ssp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/articleByLine" />
-
-
-            <TextView
                 android:id="@+id/articlePublishedDateText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
                 android:fontFamily="sans-serif-light"
                 android:textColor="@color/colorSecondaryText"
-                android:layout_marginTop="@dimen/_4sdp"
                 app:layout_constraintBottom_toBottomOf="@+id/articlePublishedDate"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/articlePublishedDate" />

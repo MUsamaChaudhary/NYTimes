@@ -1,5 +1,6 @@
 package com.app.nytimes.models
 
+import com.google.gson.annotations.SerializedName
 import org.parceler.Parcel
 
 
@@ -14,5 +15,4 @@ data class MostViewedArticle(
     var subsection: String? = null,
     var byline: String? = null,
     var title: String? = null,
-    var abstract: String? = null
 )
