@@ -5,6 +5,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitService {
 
+
+
     private const val BASE_URL = "https://api.nytimes.com/svc/mostpopular/v2/"
 
     private val retrofitClient = Retrofit.Builder()
